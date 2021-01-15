@@ -1,36 +1,37 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "d90784a7-cccb-47ba-a7ce-91290f44d66a": {
-        "id": "d90784a7-cccb-47ba-a7ce-91290f44d66a",
+      "aea43140-5025-4846-bd3f-b8c951b71bd0": {
+        "id": "aea43140-5025-4846-bd3f-b8c951b71bd0",
         "parent": null,
-        "name": "kk.js",
-        "type": "JS_LAMBDA",
+        "name": "kk.py",
+        "type": "PYTHON_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "kk.js",
+        "filePath": "kk.py",
         "cursor": {
           "lineNumber": 1,
           "column": 1
         },
         "config": {
-          "runtime": "nodejs8",
+          "runtime": "python37",
+          "handler": "handler",
           "timeout": 60,
           "memory": 128,
           "triggerType": 0,
-          "name": "kk",
-          "handler": "handler"
+          "name": "kk"
         },
         "triggers": [
           {
             "resourceName": "http-trigger",
             "config": {}
           }
-        ]
+        ],
+        "lastUpdated": 1610701970139
       },
-      "6f009c35-6d40-445f-9960-47975c9a2ae6": {
-        "id": "6f009c35-6d40-445f-9960-47975c9a2ae6",
+      "eb24d176-fc80-4b7a-bbe1-68c633c2f65c": {
+        "id": "eb24d176-fc80-4b7a-bbe1-68c633c2f65c",
         "parent": null,
         "name": "index.js",
         "type": "JS_FILE",
@@ -39,8 +40,8 @@
         "isRemovable": false,
         "filePath": "index.js"
       },
-      "b1e1c795-8f09-4fd9-b904-18c19de5f3b7": {
-        "id": "b1e1c795-8f09-4fd9-b904-18c19de5f3b7",
+      "d7594ef4-2f18-4690-92b5-6482171fca9b": {
+        "id": "d7594ef4-2f18-4690-92b5-6482171fca9b",
         "parent": null,
         "name": "main.py",
         "type": "PYTHON_FILE",
@@ -48,51 +49,84 @@
         "children": [],
         "isRemovable": false,
         "filePath": "main.py"
-      },
-      "473f1bf8-a493-40dc-9c9d-6817fc9315dc": {
-        "id": "473f1bf8-a493-40dc-9c9d-6817fc9315dc",
-        "parent": null,
-        "name": "Authorizer.js",
-        "type": "JS_FILE",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "Authorizer.js"
       }
     },
     "openFiles": [
-      "d90784a7-cccb-47ba-a7ce-91290f44d66a"
+      "aea43140-5025-4846-bd3f-b8c951b71bd0"
     ],
-    "currentFileId": "d90784a7-cccb-47ba-a7ce-91290f44d66a",
+    "currentFileId": "aea43140-5025-4846-bd3f-b8c951b71bd0",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
         "type": "http-trigger",
         "config": {}
       },
-      "storagesamplegcs": {
-        "name": "storagesamplegcs",
-        "type": "CloudStorage",
+      "ddbKChineseAnimal": {
+        "name": "ddbKChineseAnimal",
+        "type": "DynamoDB",
         "config": {
           "mode": 1,
-          "bucket": {
-            "name": "sample_gcs"
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:318300609668:table/KChineseAnimal",
+            "name": "KChineseAnimal",
+            "partitionKey": "BirthYear",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "",
+            "payPerRequest": true,
+            "mode": 1,
+            "secondaryIndexes": {}
           }
         }
       }
     },
     "customTemplate": {
+      "syntax": "JSON",
       "overrideDefault": false,
       "dialect": null,
       "definitions": null
     },
-    "envVariables": [],
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_DEFAULT_REGION",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_ACCESS_KEY_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_SECRET_ACCESS_KEY",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
     "packageJSON": {
       "dependencies": {
-        "googleapis": {
-          "name": "googleapis",
-          "language": "nodejs",
-          "version": "29.0.0",
+        "boto3": {
+          "name": "boto3",
+          "language": "python",
+          "version": "1.16.43",
           "dev": false,
           "notRemovable": false
         }
@@ -100,14 +134,17 @@
     }
   },
   "PROJECT_META": {
+    "sigmaVersion": "1.5.1",
     "projectName": "kk",
     "projectDescription": "",
     "projectVersion": "1.0.0",
-    "projectRegion": "us-central1",
+    "projectRegion": "us-east1",
     "platform": "GCP",
-    "language": "nodejs",
-    "platformRegions": {},
-    "lastSave": 1586497217187
+    "language": "python",
+    "platformRegions": {
+      "AWS": "us-east-1"
+    },
+    "lastSave": 1610702017722
   },
   "VCS_STATE": {
     "provider": "GitHub",
